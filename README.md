@@ -20,7 +20,7 @@ $ node server.js &
 ```
 
 Open the playground and add `./cert.der` to its `Resources`.
-Execute Playground.
+Execute playground.
 
 Problems? Check the server:
 ```

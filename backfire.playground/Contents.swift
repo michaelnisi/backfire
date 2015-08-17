@@ -31,7 +31,7 @@ extension Certify: NSURLSessionDelegate {
 
 func loadCert (name: String) -> SecCertificate? {
   let bundle = NSBundle.mainBundle()
-  if let path = bundle.pathForResource("cert", ofType: "der") {
+  if let path = bundle.pathForResource(name, ofType: "der") {
     if let data = NSData(contentsOfFile: path) {
       return SecCertificateCreateWithData(nil, data)
     }
@@ -45,7 +45,7 @@ func headers () -> [NSObject: String] {
 
 func createSession () -> NSURLSession? {
   let conf = NSURLSessionConfiguration.defaultSessionConfiguration()
-  guard let cert = loadCert("cert.der") else {
+  guard let cert = loadCert("cert") else {
     return nil
   }
   conf.HTTPAdditionalHeaders = headers()
